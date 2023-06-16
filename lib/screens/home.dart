@@ -1,7 +1,8 @@
 import 'package:ecommece_app/models/product_models.dart';
-import 'package:ecommece_app/widgets/product_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommece_app/services/api_services.dart';
+
+import '../widgets/products_grid.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -42,25 +43,8 @@ class _HomePageState extends State<HomePage> {
             } else if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');
             } else {
-              final products = snapshot.data!;
-              return GridView.builder(
-                padding: const EdgeInsets.all(8),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 4 / 5,
-                  crossAxisSpacing: 4,
-                ),
-                itemCount: products.length,
-                itemBuilder: (context, index) {
-                  final product = products[index];
-                  return ProductTile(
-                    title: product.title,
-                    desc: product.desc,
-                    imgUrl: product.imgUrl,
-                    rate: product.price,
-                  );
-                },
-              );
+              // final products = snapshot.data!;
+              return productsGrid();
             }
           },
         ),

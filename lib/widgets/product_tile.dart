@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProductTile extends StatelessWidget {
+  final int? id;
   final String? title;
   final String? desc;
   final String? imgUrl;
@@ -8,6 +9,7 @@ class ProductTile extends StatelessWidget {
 
   const ProductTile({
     Key? key,
+    required this.id,
     required this.title,
     required this.desc,
     required this.imgUrl,
