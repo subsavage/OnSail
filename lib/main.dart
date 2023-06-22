@@ -1,7 +1,9 @@
+import 'package:ecommece_app/screens/favorites.dart';
 import 'package:ecommece_app/screens/home.dart';
 import 'package:ecommece_app/screens/product_page.dart';
-import 'package:flutter/material.dart';
+import 'package:ecommece_app/screens/wishlist.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
 import './providers/products_provider.dart';
 
 void main() {
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
         home: const HomePage(),
         routes: {
           ProductPage.routeName: (context) => const ProductPage(),
+          Favorites.routeName: (context) => const Favorites(),
+          WishList.routeName: (context) => const WishList(),
         },
       ),
     );

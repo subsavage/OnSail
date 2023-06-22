@@ -10,13 +10,36 @@ class Products with ChangeNotifier {
       _items = fetchedProducts;
       notifyListeners();
     } catch (error) {
-      throw error;
+      print(error);
     }
   }
 
   List<Product> _items = [];
+  List<Product> get items => [..._items];
 
-  List<Product> get items {
-    return [..._items];
+  final List<Product> _favorites = [];
+  List<Product> get favorites => _favorites;
+
+  final List<Product> _wishlist = [];
+  List<Product> get wishlist => _wishlist;
+
+  void addToFavorites(Product product) {
+    _favorites.add(product);
+    notifyListeners();
+  }
+
+  void removeFromFavorites(Product product) {
+    _favorites.remove(product);
+    notifyListeners();
+  }
+
+  void addToWishList(Product product) {
+    _wishlist.add(product);
+    notifyListeners();
+  }
+
+  void removeFromWishList(Product product) {
+    _wishlist.remove(product);
+    notifyListeners();
   }
 }
